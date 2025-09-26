@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sample HTML Page — Abhinesh</title>
+  <!-- Google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --accent:#2563eb;
+      --muted:#6b7280;
+      --bg:#f8fafc;
+      --card:#ffffff;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:#0f172a;line-height:1.5}
+    .container{max-width:1100px;margin:0 auto;padding:24px}
+    header{background:linear-gradient(90deg,rgba(37,99,235,0.06),transparent);position:sticky;top:0;backdrop-filter:saturate(120%)}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{
+      width:44px;height:44px;border-radius:8px;background:var(--accent);display:grid;place-items:center;color:white;font-weight:700;
+      box-shadow: 0 4px 14px rgba(37,99,235,0.12);
+    }
+    nav a{margin-left:16px;text-decoration:none;color:var(--muted);font-weight:600}
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;padding:48px 0}
+    .card{background:var(--card);padding:20px;border-radius:12px;box-shadow:0 6px 24px rgba(15,23,42,0.06)}
+    h1{margin:0 0 12px;font-size:28px}
+    p.lead{margin:0 0 18px;color:var(--muted)}
+    .btn{display:inline-block;padding:10px 16px;border-radius:8px;background:var(--accent);color:white;text-decoration:none;font-weight:600}
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px}
+    .feature{padding:18px;border-radius:10px;background:linear-gradient(180deg,#fff,#fbfdff);border:1px solid rgba(15,23,42,0.03)}
+    .form-row{display:flex;gap:12px}
+    input,textarea,select{width:100%;padding:10px;border-radius:8px;border:1px solid #e6edf3}
+    footer{padding:28px 0;text-align:center;color:var(--muted);margin-top:36px;font-size:14px}
+
+    /* Responsive */
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr; padding:28px 0}
+      .features{grid-template-columns:1fr; margin-top:18px}
+      nav a{display:none}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo">AA</div>
+        <div>
+          <div style="font-weight:700">MySampleSite</div>
+          <small style="color:var(--muted)">A tiny demo page</small>
+        </div>
+      </div>
+
+      <nav>
+        <a href="#features">Features</a>
+        <a href="#demo">Demo</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <div class="card">
+          <h1>Build faster with a simple, clean HTML template</h1>
+          <p class="lead">This sample page demonstrates a typical small landing layout — hero, features, a small interactive demo, and a contact form. Use it as a starting point for learning or for small projects.</p>
+
+          <div style="display:flex;gap:10px">
+            <a class="btn" href="#contact">Get in touch</a>
+            <a style="align-self:center;color:var(--accent);font-weight:600;text-decoration:none" href="#demo">Try demo →</a>
+          </div>
+        </div>
+
+        <div class="features" id="features" style="margin-top:18px">
+          <div class="feature">
+            <h3 style="margin:0 0 8px">Simple</h3>
+            <p style="margin:0;color:var(--muted)">Clear structure and comments so you can extend easily.</p>
+          </div>
+          <div class="feature">
+            <h3 style="margin:0 0 8px">Responsive</h3>
+            <p style="margin:0;color:var(--muted)">Adapts to mobile and desktop using CSS grid and media queries.</p>
+          </div>
+          <div class="feature">
+            <h3 style="margin:0 0 8px">Interactive</h3>
+            <p style="margin:0;color:var(--muted)">Small JS demo included to show dynamic behavior.</p>
+          </div>
+        </div>
+      </div>
+
+      <aside>
+        <div class="card" id="demo">
+          <h3 style="margin-top:0">Mini JS Demo</h3>
+          <p style="margin:0 0 12px;color:var(--muted)">Enter a number and click <strong>Check</strong> — the script will tell if it's even or odd.</p>
+
+          <div style="display:flex;gap:8px">
+            <input id="num" type="number" placeholder="Enter number" />
+            <button id="checkBtn" class="btn" style="padding:10px 12px">Check</button>
+          </div>
+
+          <p id="result" style="margin-top:12px;color:var(--muted)"></p>
+        </div>
+      </aside>
+    </section>
+
+    <section class="card" style="margin-top:24px" id="contact">
+      <h2 style="margin-top:0">Contact</h2>
+      <p style="color:var(--muted);margin:0 0 12px">Send a quick message — this form only validates on the client side (no server here).</p>
+
+      <form id="contactForm" onsubmit="return false;">
+        <div class="form-row" style="margin-bottom:10px">
+          <input id="name" type="text" placeholder="Your name" required />
+          <input id="email" type="email" placeholder="Email address" required />
+        </div>
+        <div style="margin-bottom:10px">
+          <input id="subject" type="text" placeholder="Subject" />
+        </div>
+        <div style="margin-bottom:10px">
+          <textarea id="message" rows="4" placeholder="Message" required></textarea>
+        </div>
+
+        <div style="display:flex;gap:10px;align-items:center">
+          <button id="sendBtn" class="btn">Send message</button>
+          <div id="formStatus" style="color:var(--muted)"></div>
+        </div>
+      </form>
+    </section>
+
+    <footer>
+      © <span id="year"></span> MySampleSite — built for learning. | <a href="#" style="color:var(--accent);text-decoration:none">Privacy</a>
+    </footer>
+  </main>
+
+  <script>
+    // Set year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Even/odd demo
+    document.getElementById('checkBtn').addEventListener('click', function () {
+      const n = Number(document.getElementById('num').value);
+      const res = document.getElementById('result');
+      if (!Number.isFinite(n)) {
+        res.textContent = 'Please enter a valid number.';
+        return;
+      }
+      res.textContent = (n % 2 === 0) ? n + ' is Even ✅' : n + ' is Odd 🔢';
+    });
+
+    // Simple contact form validation
+    document.getElementById('sendBtn').addEventListener('click', function (e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      const status = document.getElementById('formStatus');
+
+      // basic checks
+      if (!name || !email || !message) {
+        status.textContent = 'Please fill name, email and message.';
+        status.style.color = 'crimson';
+        return;
+      }
+      // simple email pattern
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailPattern.test(email)) {
+        status.textContent = 'Enter a valid email address.';
+        status.style.color = 'crimson';
+        return;
+      }
+
+      // pretend send
+      status.style.color = 'green';
+      status.textContent = 'Message ready to send (demo). Thanks, ' + name + '!';
+      // In real app: send data via fetch()/XHR to your backend here.
+    });
+  </script>
+</body>
+</html>
